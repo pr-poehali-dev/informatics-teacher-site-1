@@ -69,10 +69,10 @@ const Index = () => {
                 <Icon name="Code2" className="text-white" size={24} />
               </div>
               <div>
-                <h1 className="font-heading text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Информатика
+                <h1 className="font-heading text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Сайт учителя начальных классов
                 </h1>
-                <p className="text-xs text-muted-foreground">с Еленой Ивановной</p>
+                <p className="text-sm text-muted-foreground font-medium">Тимофеева Ксения</p>
               </div>
             </div>
             <div className="hidden md:flex gap-2">
