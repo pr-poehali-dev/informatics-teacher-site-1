@@ -41,10 +41,10 @@ const Index = () => {
   ];
 
   const events = [
-    { date: new Date(2024, 9, 18), title: 'Урок Python', time: '14:00' },
-    { date: new Date(2024, 9, 20), title: 'Сдача проекта', time: '16:00' },
-    { date: new Date(2024, 9, 22), title: 'Контрольная работа', time: '13:00' },
-    { date: new Date(2024, 9, 24), title: 'Урок Python', time: '12:00' },
+    { date: new Date(2025, 9, 18), title: 'Урок Python', time: '14:00' },
+    { date: new Date(2025, 9, 20), title: 'Сдача проекта', time: '16:00' },
+    { date: new Date(2025, 9, 22), title: 'Контрольная работа', time: '13:00' },
+    { date: new Date(2025, 9, 24), title: 'Урок Python', time: '12:00' },
   ];
 
   const scrollToSection = (sectionId: string) => {
