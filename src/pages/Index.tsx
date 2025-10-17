@@ -53,6 +53,17 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const getEventsForDate = (date: Date | undefined) => {
+    if (!date) return [];
+    return events.filter(event => 
+      event.date.getDate() === date.getDate() &&
+      event.date.getMonth() === date.getMonth() &&
+      event.date.getFullYear() === date.getFullYear()
+    );
+  };
+
+  const selectedDateEvents = getEventsForDate(selectedDate);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50 to-blue-50">
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b shadow-sm">
@@ -234,27 +245,36 @@ const Index = () => {
               <CardHeader>
                 <CardTitle className="font-heading flex items-center gap-2">
                   <Icon name="Bell" size={24} />
-                  Ближайшие события
+                  {selectedDate ? `Занятия ${selectedDate.getDate()} ${selectedDate.toLocaleDateString('ru', { month: 'long' })}` : 'Выберите дату'}
                 </CardTitle>
+                <CardDescription>
+                  {selectedDateEvents.length > 0 
+                    ? `Найдено занятий: ${selectedDateEvents.length}`
+                    : 'Нет занятий на эту дату'}
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {events.map((event, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                    <div className="w-12 h-12 bg-primary rounded-lg flex flex-col items-center justify-center text-white">
-                      <span className="text-xs font-semibold">{event.date.getDate()}</span>
-                      <span className="text-[10px]">
-                        {event.date.toLocaleDateString('ru', { month: 'short' }).toUpperCase()}
-                      </span>
+                {selectedDateEvents.length > 0 ? (
+                  selectedDateEvents.map((event, idx) => (
+                    <div key={idx} className="flex items-start gap-4 p-4 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 border-2 border-primary/20 hover:border-primary/40 transition-all animate-scale-in">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex flex-col items-center justify-center text-white shadow-lg">
+                        <Icon name="BookOpen" size={24} />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-lg">{event.title}</h4>
+                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                          <Icon name="Clock" size={14} />
+                          {event.time}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold">{event.title}</h4>
-                      <p className="text-sm text-muted-foreground flex items-center gap-1">
-                        <Icon name="Clock" size={14} />
-                        {event.time}
-                      </p>
-                    </div>
+                  ))
+                ) : (
+                  <div className="text-center py-8 text-muted-foreground">
+                    <Icon name="CalendarX" size={48} className="mx-auto mb-3 opacity-50" />
+                    <p>На выбранную дату занятий не запланировано</p>
                   </div>
-                ))}
+                )}
               </CardContent>
             </Card>
           </div>
