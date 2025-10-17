@@ -69,7 +69,7 @@ const Index = () => {
                 <Icon name="Code2" className="text-white" size={24} />
               </div>
               <div>
-                <h1 className="font-heading text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h1 className="font-heading text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">
                   Сайт учителя начальных классов
                 </h1>
                 <p className="text-sm text-muted-foreground font-medium">Тимофеева Ксения</p>
