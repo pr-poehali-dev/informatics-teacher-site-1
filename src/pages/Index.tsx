@@ -13,32 +13,27 @@ const Index = () => {
 
   const navItems = [
     { id: 'home', label: 'Главная', icon: 'Home' },
-    { id: 'materials', label: 'Материалы', icon: 'BookOpen' },
-    { id: 'courses', label: 'Курсы', icon: 'GraduationCap' },
-    { id: 'projects', label: 'Проекты', icon: 'Lightbulb' },
+    { id: 'about', label: 'Обо мне', icon: 'User' },
+    { id: 'disciplines', label: 'Дисциплины', icon: 'BookOpen' },
+    { id: 'achievements', label: 'Достижения', icon: 'Award' },
     { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
     { id: 'contact', label: 'Контакты', icon: 'Mail' },
   ];
 
-  const materials = [
-    { title: 'Python для начинающих', type: 'Видеокурс', lessons: 12, color: 'bg-primary' },
-    { title: 'Алгоритмы и структуры данных', type: 'Презентация', lessons: 8, color: 'bg-secondary' },
-    { title: 'Web-разработка: HTML/CSS', type: 'Практика', lessons: 15, color: 'bg-accent' },
-    { title: 'Основы JavaScript', type: 'Видеокурс', lessons: 20, color: 'bg-primary' },
+  const disciplines = [
+    { title: 'Основы программирования', description: 'Введение в алгоритмическое мышление', hours: 72, color: 'bg-primary' },
+    { title: 'Python', description: 'Современный язык программирования', hours: 68, color: 'bg-secondary' },
+    { title: 'Web-разработка', description: 'HTML, CSS, JavaScript', hours: 102, color: 'bg-accent' },
+    { title: 'Базы данных', description: 'SQL и работа с данными', hours: 56, color: 'bg-primary' },
   ];
 
-  const courses = [
-    { title: 'Основы программирования', level: 'Начальный', duration: '3 месяца', students: 24 },
-    { title: 'Python Advanced', level: 'Продвинутый', duration: '4 месяца', students: 15 },
-    { title: 'Веб-разработка', level: 'Средний', duration: '6 месяцев', students: 18 },
+  const achievements = [
+    { title: 'Учитель года 2024', category: 'Педагогическое мастерство', year: '2024' },
+    { title: 'Победитель олимпиады по информатике', category: 'Подготовка учеников', year: '2023' },
+    { title: 'Сертификат Python разработчика', category: 'Профессиональное развитие', year: '2022' },
   ];
 
-  const projects = [
-    { name: 'Игра "Змейка"', author: 'Анна К.', tech: 'Python', rating: 5 },
-    { name: 'Портфолио сайт', author: 'Максим Р.', tech: 'React', rating: 5 },
-    { name: 'Телеграм-бот', author: 'София М.', tech: 'Python', rating: 4 },
-    { name: 'Калькулятор', author: 'Иван Д.', tech: 'JavaScript', rating: 4 },
-  ];
+
 
   const events = [
     { date: new Date(2025, 9, 18), title: 'Урок Python', time: '14:00' },
@@ -107,9 +102,9 @@ const Index = () => {
               Изучаем программирование, алгоритмы и создаем крутые проекты вместе
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" className="gap-2 animate-scale-in" onClick={() => scrollToSection('materials')}>
-                <Icon name="BookOpen" size={20} />
-                Начать обучение
+              <Button size="lg" className="gap-2 animate-scale-in" onClick={() => scrollToSection('about')}>
+                <Icon name="User" size={20} />
+                Узнать больше
               </Button>
               <Button size="lg" variant="outline" className="gap-2 animate-scale-in" onClick={() => scrollToSection('schedule')}>
                 <Icon name="Calendar" size={20} />
@@ -127,23 +122,65 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="materials" className="py-20 px-4 bg-white/50">
+      <section id="about" className="py-20 px-4 bg-white/50">
+        <div className="container mx-auto max-w-4xl">
+          <h3 className="font-heading text-4xl font-bold mb-12 text-center">Обо мне</h3>
+          <Card className="animate-fade-in">
+            <CardContent className="pt-6">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="w-48 h-48 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                  <Icon name="User" className="text-white" size={96} />
+                </div>
+                <div className="flex-1 space-y-4">
+                  <h4 className="font-heading text-2xl font-bold">Елена Ивановна</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Учитель информатики с 10-летним стажем. Увлекаюсь программированием, веб-разработкой и обучением детей современным технологиям. 
+                    Моя цель — не просто научить детей кодить, а привить любовь к технологиям и развить алгоритмическое мышление.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">Python</Badge>
+                    <Badge variant="secondary">JavaScript</Badge>
+                    <Badge variant="secondary">Web-разработка</Badge>
+                    <Badge variant="secondary">Алгоритмы</Badge>
+                  </div>
+                  <div className="flex gap-4 pt-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary">10+</div>
+                      <div className="text-sm text-muted-foreground">лет опыта</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-secondary">250+</div>
+                      <div className="text-sm text-muted-foreground">учеников</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent">50+</div>
+                      <div className="text-sm text-muted-foreground">проектов</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section id="disciplines" className="py-20 px-4">
         <div className="container mx-auto">
-          <h3 className="font-heading text-4xl font-bold mb-12 text-center">Учебные материалы</h3>
+          <h3 className="font-heading text-4xl font-bold mb-12 text-center">Преподаваемые дисциплины</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {materials.map((material, idx) => (
+            {disciplines.map((discipline, idx) => (
               <Card key={idx} className="hover:shadow-xl transition-all hover:-translate-y-2 cursor-pointer animate-fade-in border-2 hover:border-primary">
                 <CardHeader>
-                  <div className={`w-12 h-12 ${material.color} rounded-lg flex items-center justify-center mb-4`}>
+                  <div className={`w-12 h-12 ${discipline.color} rounded-lg flex items-center justify-center mb-4`}>
                     <Icon name="BookOpen" className="text-white" size={24} />
                   </div>
-                  <CardTitle className="font-heading">{material.title}</CardTitle>
-                  <CardDescription>{material.type}</CardDescription>
+                  <CardTitle className="font-heading">{discipline.title}</CardTitle>
+                  <CardDescription>{discipline.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Icon name="PlayCircle" size={16} />
-                    <span>{material.lessons} уроков</span>
+                    <Icon name="Clock" size={16} />
+                    <span>{discipline.hours} часов</span>
                   </div>
                 </CardContent>
               </Card>
@@ -152,68 +189,23 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="courses" className="py-20 px-4">
+      <section id="achievements" className="py-20 px-4 bg-white/50">
         <div className="container mx-auto">
-          <h3 className="font-heading text-4xl font-bold mb-12 text-center">Мои курсы</h3>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {courses.map((course, idx) => (
-              <Card key={idx} className="hover:shadow-xl transition-all animate-fade-in">
+          <h3 className="font-heading text-4xl font-bold mb-12 text-center">Достижения</h3>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {achievements.map((achievement, idx) => (
+              <Card key={idx} className="hover:shadow-xl transition-all hover:scale-105 cursor-pointer animate-fade-in border-2 border-primary/20">
                 <CardHeader>
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                      <Icon name="GraduationCap" className="text-white" size={28} />
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                      <Icon name="Award" className="text-white" size={32} />
                     </div>
-                    <Badge variant="secondary">{course.level}</Badge>
                   </div>
-                  <CardTitle className="font-heading text-xl">{course.title}</CardTitle>
+                  <CardTitle className="font-heading text-lg text-center">{achievement.title}</CardTitle>
+                  <CardDescription className="text-center">{achievement.category}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Icon name="Clock" size={16} className="text-muted-foreground" />
-                    <span>{course.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Icon name="Users" size={16} className="text-muted-foreground" />
-                    <span>{course.students} учеников</span>
-                  </div>
-                  <Button className="w-full mt-4 gap-2">
-                    <Icon name="ArrowRight" size={16} />
-                    Подробнее
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="py-20 px-4 bg-white/50">
-        <div className="container mx-auto">
-          <h3 className="font-heading text-4xl font-bold mb-12 text-center">Проекты учеников</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {projects.map((project, idx) => (
-              <Card key={idx} className="hover:shadow-xl transition-all hover:scale-105 cursor-pointer animate-fade-in">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-accent to-secondary rounded-full flex items-center justify-center">
-                      <Icon name="Lightbulb" className="text-white" size={20} />
-                    </div>
-                    <Badge>{project.tech}</Badge>
-                  </div>
-                  <CardTitle className="font-heading text-lg">{project.name}</CardTitle>
-                  <CardDescription>Автор: {project.author}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Icon
-                        key={i}
-                        name="Star"
-                        size={16}
-                        className={i < project.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}
-                      />
-                    ))}
-                  </div>
+                <CardContent className="text-center">
+                  <Badge variant="outline" className="text-lg px-4 py-1">{achievement.year}</Badge>
                 </CardContent>
               </Card>
             ))}
